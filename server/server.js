@@ -77,7 +77,7 @@ app.listen(port, () => {
 
 
 function log(a){
-  fs.appendFile( `log`, a + `\n` , (err) => {
+  fs.appendFile( `/var/log/student.log`, a + `\n` , (err) => {
       if (err) {
           console.error('Error writing file:', err);
           return;
