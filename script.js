@@ -46,10 +46,26 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     })
     .then(data => {
         console.log('成功:', data);
+        clear();
         alert("数据已修改")
     })
     .catch((error) => {
         console.error('出错:', error);
         alert("错误联系管理员")
     });
+
+    // 清除表单内容
+    function clear(){
+        document.getElementById('number').value ="";
+        document.getElementById('name').value ="";
+
+        document.getElementById('time1').value ="";
+        document.getElementById('time1-1').value ="";
+
+        document.getElementById('time2').value ="";
+        document.getElementById('time2-2').value ="";
+
+        document.getElementById('time3').value ="";
+        document.getElementById('time3-3').value ="";
+        }
 });

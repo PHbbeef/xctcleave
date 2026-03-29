@@ -17,7 +17,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
 <script src="./jquery-3.2.1.min.js"></script>
 <style>.fixed-header{background:#009688!important}</style>
 <meta name=referrer content=no-referrer><link rel=icon href="data:;base64,iVBORw0KGgo="><link rel=canonical href=https://xctc.g8n.cn/student/course/123909/leaves><meta http-equiv=content-security-policy content="default-src 'self'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;"><body class="color-theme-blue push-content-right theme-light" data-weui-theme=light>
-<body class="pageContent" style="display: block;">
+<body id="pageContent" style="display: none;">
   <div class=wrapper><div class="sidebar sidebar-left" id=leftmenuarea>
   <div class=profile-link><a href=# class=media><div class="w-auto h-100">
   <figure class="avatar avatar-40"><i class="la la-user" style=font-size:40px></i>
@@ -53,6 +53,8 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
       document.getElementById("name2").innerHTML= data.name +" (" + data.number + " )";   // 姓名加学号
       document.getElementById("time1").innerHTML=  "请假时间: "+ data.time1 +" ~ "+ data.time2;
       document.getElementById("time3").innerHTML= "申请时间: "+ data.time3;
+
+      document.getElementById("pageContent").style.display = "block";
     })
   </script>
 
