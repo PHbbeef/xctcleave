@@ -16,9 +16,16 @@ app.post('/api/json', (req, res) => {
     time1s = req.body.time1
     time2s = req.body.time2
     time3s = req.body.time3
+    time4s = req.body.time4
     cause  = req.body.cause
-  console.log(req.body)
-  log( `${date}：`+ `JSON{ numbers:${numbers} names:${names} time1s:${time1s} time2s:${time2s} time3s:${time3s}}`)
+    Radio_Leave_Type = req.body.Radio_Leave_Type
+    Leave_School = req.body.Leave_School
+    Leave_City = req.body.Leave_City
+    telephone =  req.body.telephone
+    Night_School = req.body.Night_School
+   time();
+   console.log(req.body)
+  log( `${date}：`+ `JSON{ 学号:${numbers} 姓名:${names} 开始:${time1s} 截至:${time2s} 批准:${time3s}} 类型:${Radio_Leave_Type}} 是否离校:${Leave_School}} 是否离开本市:${Leave_City}} 联系电话:${telephone}} 事由说明:${cause}} 晚间是否在校:${Night_School}}`)
 });
 
 
@@ -49,13 +56,44 @@ var time2s = [
   '',
 ];
 
-// 批准时间
+// 假条发起时间
 var time3s = [
   '',
 ];
 
+// 假条通过时间
+var time4s = [
+  '',
+];
+
+
 // 请假原因
 var cause = [
+  '',
+];
+
+// 请假类型
+var Radio_Leave_Type = [
+  '',
+];
+
+// 是否离校
+var Leave_School = [
+  '',
+];
+
+// 是否离开本市
+var Leave_City = [
+  '',
+];
+
+// 联系电话
+var telephone = [
+  '',
+];
+
+// 夜晚是否在校
+var Night_School = [
   '',
 ];
 
@@ -69,8 +107,14 @@ app.get('/api',
         "name":names,
         "time1":time1s,
         "time2":time2s,
-        "time3":time3s,
+        "time3":time3s,   // 假条发起时间
+        "time4":time4s,   // 假条通过时间
         "cause":cause,
+        "Radio_Leave_Type":Radio_Leave_Type,
+        "Leave_City":Leave_City,
+        "Leave_School":Leave_School,
+        "telephone":telephone,
+        "Night_School":Night_School
       }
     );
   });
@@ -91,4 +135,19 @@ function log(a){
       }
       console.log('File written successfully');
   });
+}
+
+function time(){
+  let isoStr1 = time1s
+  let isoStr2 = time2s;
+  let isoStr3 = time3s;
+  let isoStr4 = time4s;
+  let readable1 = isoStr1.replace('T', ' ');
+  let readable2 = isoStr2.replace('T', ' ');
+  let readable3 = isoStr3.replace('T', ' ');
+  let readable4 = isoStr4.replace('T', ' ');
+  time1s = readable1;
+  time2s = readable2;
+  time3s = readable3;
+  time4s = readable4;
 }

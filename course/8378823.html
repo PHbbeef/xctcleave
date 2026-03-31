@@ -48,7 +48,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <div class="label mr-10">
   <div>请假类型</div>
   </div>
-  <span class=badge>
+  <span id="Radio_Leave_Type" class=badge>
   事假
   
   </span>
@@ -59,7 +59,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <div class="label mr-10">
   <div>是否离校</div>
   </div>
-  <span class=badge>
+  <span id="Leave_School" class=badge>
   离校
   
   </span>
@@ -70,7 +70,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <div class="label mr-10">
   <div>是否离开本市</div>
   </div>
-  <span class=badge>
+  <span id="Leave_City" class=badge>
   否
   
   </span>
@@ -109,7 +109,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <div>联系电话</div>
   </div>
   <span class=badge>
-  <span><a href=tel:19337213126 class=link>193****3126</a> <a href=javascript:void(0) class="link ss-hidden" data-value=19337213126 data-show=193****3126><img src=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB0UlEQVR42u1WPUvEQBC1t1KCtaC/QA/EQrAWGwUbq3BFGgsrPwoL20MrhdxHUujV3hWLICn8A2LlTxDEuyJdep0Hs7Asud05TwgHWXhcbufN29ndmUkW6lGPuRqdTqfR7XYj+r3r9Xqv9DwmfBNeCC2aa4Lz7wu32+1dEn+kRX4kABc+My9MQvskODDE3wmXhGPCVpqmy3EcLyVJskn/j2j3F+AY/AE0/rrr0Fo4kvqCawVyziaxwInhfGYFtor7Jija3ReAZ8zBZuXMlaGTSBMt1U50tHslp1I47r8Ax9I7NezPvsWHmmzvhoLZMYTesBA4jBBz2g6udaIbhu/DpDu/NkiBJRAQctjAw5xHI7c1+v3+otanjR7a2X5glFCz5GRu2K4E+aPAhU+JzrYRREM7rBE+2XA7QTRjeySsAHAzj/2DTmwFux+67oadRuBQ3a/7AgCH9UYOvXvmPIkC4FLjxHQPcMCFjyQA6RUoDiCcooEpyRWIkhBNRpefLwCjHFu+JBSXIR9rMUUZFvDxl6G8EdnvBkWIkHAAH6syfEN5I5K3Yt0Nc0crzsFxteKZX0a4Hm5MGWHEyHgucL2MKn0dV/pBUtknWXUfpfWoxzyNXzU3HyqBpbg7AAAAAElFTkSuQmCC style=margin:0;vertical-align:text-bottom;width:15px></a></span>
+  <span><a href=tel:19337213126 class=link id="telephone">193****3126</a> <a href=javascript:void(0) class="link ss-hidden" data-value=19337213126 data-show=193****3126><img src=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB0UlEQVR42u1WPUvEQBC1t1KCtaC/QA/EQrAWGwUbq3BFGgsrPwoL20MrhdxHUujV3hWLICn8A2LlTxDEuyJdep0Hs7Asud05TwgHWXhcbufN29ndmUkW6lGPuRqdTqfR7XYj+r3r9Xqv9DwmfBNeCC2aa4Lz7wu32+1dEn+kRX4kABc+My9MQvskODDE3wmXhGPCVpqmy3EcLyVJskn/j2j3F+AY/AE0/rrr0Fo4kvqCawVyziaxwInhfGYFtor7Jija3ReAZ8zBZuXMlaGTSBMt1U50tHslp1I47r8Ax9I7NezPvsWHmmzvhoLZMYTesBA4jBBz2g6udaIbhu/DpDu/NkiBJRAQctjAw5xHI7c1+v3+otanjR7a2X5glFCz5GRu2K4E+aPAhU+JzrYRREM7rBE+2XA7QTRjeySsAHAzj/2DTmwFux+67oadRuBQ3a/7AgCH9UYOvXvmPIkC4FLjxHQPcMCFjyQA6RUoDiCcooEpyRWIkhBNRpefLwCjHFu+JBSXIR9rMUUZFvDxl6G8EdnvBkWIkHAAH6syfEN5I5K3Yt0Nc0crzsFxteKZX0a4Hm5MGWHEyHgucL2MKn0dV/pBUtknWXUfpfWoxzyNXzU3HyqBpbg7AAAAAElFTkSuQmCC style=margin:0;vertical-align:text-bottom;width:15px></a></span>
   
   </span>
   </li>
@@ -231,6 +231,11 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
       document.getElementById("time3").innerHTML = data.time3;    // 批准时间
 
       document.getElementById("cause").innerHTML= data.cause;
+
+      document.getElementById("Radio_Leave_Type").innerHTML= data.Radio_Leave_Type;
+      document.getElementById("Leave_School").innerHTML= data.Leave_School;
+      document.getElementById("Leave_City").innerHTML= data.Leave_City;
+      document.getElementById("telephone").innerHTML= data.telephone;
 
 
       const dateString = data.time1;

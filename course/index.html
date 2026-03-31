@@ -92,7 +92,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <th><span class=invisible>至</span></th>
   </tr>
   </table>
-  <div class="text-center text-danger mt-20 mb--10 font-24">
+  <div id="Leave_City" class="text-center text-danger mt-20 mb--10 font-24">
   离校不出市
   </div>
   <div class=text-center>
@@ -103,7 +103,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   </tr>
   <tr>
   <th>批准时间：</th>
-  <td id="time3" class=text-dark></td>
+  <td id="time4" class=text-dark></td>
   </tr>
   </table>
   </div> <style class=sf-hidden>#watermark{position:absolute;font-size:5em;font-weight:bold;text-align:center;line-height:1.2em;left:50%;transform:translate(-50%,-50%);z-index:-1;color:rgba(0,0,0,0.08)}</style>
@@ -127,9 +127,18 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
       document.getElementById("name1").innerHTML= data.name;
       document.getElementById("time1").innerHTML= data.time1;
       document.getElementById("time2").innerHTML= data.time2;
-      document.getElementById("time3").innerHTML= data.time3;
+      document.getElementById("time4").innerHTML= data.time4;
 
       document.getElementById("pageContent").style.display = "block";
+
+      let Leave_City = data.Leave_City;
+      if(Leave_City == "是"){
+        document.getElementById("Leave_City").innerHTML= "离开本市";
+      }
+      else{
+        document.getElementById("Leave_City").innerHTML= "离校不出市";
+      }
+
     });
   </script>
 
