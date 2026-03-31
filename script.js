@@ -18,13 +18,16 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     const time3_3s = document.getElementById('time3-3').value;
     time3ss = time3s + " " + time3_3s
 
+    const cause = document.getElementById('cause').value;
+
     // 创建JSON对象
     const data = {
         number: number,
         name: name,
         time1: time1ss,
         time2: time2ss,
-        time3: time3ss
+        time3: time3ss,
+        cause: cause
     };
 
     // 将数据转换为JSON字符串
@@ -64,8 +67,9 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
 
         document.getElementById('time2').value ="";
         document.getElementById('time2-2').value ="";
-
         document.getElementById('time3').value ="";
         document.getElementById('time3-3').value ="";
+
+        document.getElementById('cause').value ="";
         }
 });

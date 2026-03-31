@@ -35,7 +35,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   </div> <div class="weui-cells weui-cells_separated weui-cells_rounded mb-20"><a href="processtask.html" class="weui-cell weui-cell_access">
   <div class=weui-cell__bd><div class=weui-cell__bd__hd>
   </span><span>事假</span> <small class=text-danger>（离校）</small></div> 
-  <div class=weui-cell__bd__bd>请假原因: 家中有事</div> 
+  <div id="cause" class=weui-cell__bd__bd>请假原因: 家中有事</div> 
   <div id="time1" class=weui-cell__bd__bd></div> 
   <div id="time3" class=weui-cell__bd__bd></div>
   <p class=weui-cell__bd__bd>审核人：轩冠鹏</p>
@@ -53,6 +53,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
       document.getElementById("name2").innerHTML= data.name +" (" + data.number + " )";   // 姓名加学号
       document.getElementById("time1").innerHTML=  "请假时间: "+ data.time1 +" ~ "+ data.time2;
       document.getElementById("time3").innerHTML= "申请时间: "+ data.time3;
+      document.getElementById("cause").innerHTML= "请假原因: " + data.cause;
 
       document.getElementById("pageContent").style.display = "block";
     })

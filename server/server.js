@@ -16,6 +16,7 @@ app.post('/api/json', (req, res) => {
     time1s = req.body.time1
     time2s = req.body.time2
     time3s = req.body.time3
+    cause  = req.body.cause
   console.log(req.body)
   log( `${date}：`+ `JSON{ numbers:${numbers} names:${names} time1s:${time1s} time2s:${time2s} time3s:${time3s}}`)
 });
@@ -53,6 +54,11 @@ var time3s = [
   '',
 ];
 
+// 请假原因
+var cause = [
+  '',
+];
+
 
 // 学号
 app.get('/api',
@@ -64,6 +70,7 @@ app.get('/api',
         "time1":time1s,
         "time2":time2s,
         "time3":time3s,
+        "cause":cause,
       }
     );
   });
