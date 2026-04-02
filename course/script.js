@@ -46,7 +46,6 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     }
 
 
-
     // 获取姓名
     const name = document.getElementById('name').value;
     // 获取学号
@@ -63,6 +62,21 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     const time3s = document.getElementById('time3').value;
     // 通过时间
     const time4s = document.getElementById('time4').value;
+    // 假条状态
+    const Eliminate = "false"
+
+    // document.getElementById('image').addEventListener('change', function (event) {
+    //     const file = event.target.files[0];
+    //     if (file) {
+    //         const reader = new FileReader();
+    //         reader.onload = function (e) {
+    //         const base64String = e.target.result;
+    //         document.getElementById('image').src = base64String;
+    //         console.log(base64String); // Outputs the Base64 string
+    //     };
+    //     reader.readAsDataURL(file);
+    // }
+    // });
 
 
     // 创建JSON对象
@@ -78,14 +92,16 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
         Leave_School:Leave_School,
         Leave_City:Leave_City,
         telephone:telephone,
-        Night_School,Night_School
+        Night_School:Night_School,
+        Eliminate:Eliminate,
+        picture:dataURL
     };
 
     // 将数据转换为JSON字符串
     const jsonData = JSON.stringify(data);
 
     // 发送JSON数据到服务器
-    fetch("https://xctc.drlihui.eu.org/api/json ",{
+    fetch("https://xctc.drlihui.eu.org/api/json",{
         method: 'POST', // 使用 POST 请求
         headers: {
             'Content-Type': 'application/json' // 指定内容类型为 JSON

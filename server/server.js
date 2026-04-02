@@ -23,9 +23,16 @@ app.post('/api/json', (req, res) => {
     Leave_City = req.body.Leave_City
     telephone =  req.body.telephone
     Night_School = req.body.Night_School
+    Eliminate = req.body.Eliminate
+    picture  = req.body.picture
    time();
+  // head_picture(); // 前端是否有头像传入
    console.log(req.body)
   log( `${date}：`+ `JSON{ 学号:${numbers} 姓名:${names} 开始:${time1s} 截至:${time2s} 批准:${time3s}} 类型:${Radio_Leave_Type}} 是否离校:${Leave_School}} 是否离开本市:${Leave_City}} 联系电话:${telephone}} 事由说明:${cause}} 晚间是否在校:${Night_School}}`)
+});
+
+app.post('/api/jpg/json', (req, res) => {
+    picture  = req.body.picture
 });
 
 
@@ -98,7 +105,18 @@ var Night_School = [
 ];
 
 
-// 学号
+// 假条状态
+// false 为销假；true 已销假
+var Eliminate = [
+  '',
+];
+
+// 自定义头像
+var picture = [
+  '',
+];
+
+
 app.get('/api',
   (request,response) => {
     response.json(
@@ -114,7 +132,18 @@ app.get('/api',
         "Leave_City":Leave_City,
         "Leave_School":Leave_School,
         "telephone":telephone,
-        "Night_School":Night_School
+        "Night_School":Night_School,
+        "Eliminate":Eliminate,
+        "picture":picture
+      }
+    );
+  });
+
+app.get('/api/jpg',
+  (request,response) => {
+    response.json(
+      {
+        "picture":picture
       }
     );
   });
@@ -151,3 +180,17 @@ function time(){
   time3s = readable3;
   time4s = readable4;
 }
+
+// 有头像写入保存为jpg格式
+// function head_picture(P){
+//   if(P){
+//     fs.appendFile( `./jpg/picture/picture.jpg`, a + `\n` , (err) => {
+//         if (err) {
+//             console.error('Error writing file:', err);
+//             return;
+//         }
+//         console.log('picture数据已写入');
+//     });
+//   }
+//   return;
+// }

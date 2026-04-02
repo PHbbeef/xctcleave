@@ -43,7 +43,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
                 <label class=control-label>是否离校 <span class=required-mark style=color:red></span></label><div>
                     <label class=radio-inline style=margin-right:10px><input name="Leave_School" bjmf-score=0 link_n=fn_92011 bmfe=bmfe bmneed=1 field-type=radio type=radio value=离校 title=离校 name=rd[fn_92011]> 离校</label>
                     <label class=radio-inline style=margin-right:10px><input name="Leave_School" bjmf-score=0 link_n=fn_92011 bmfe=bmfe bmneed=1 field-type=radio type=radio value=不离校 title=不离校 name=rd[fn_92011]> 不离校</label>
-            <div id="Leave_City" data-type="radio" class="form-group" style="display: block;"><label class=" control-label">是否离开本市 <span class="required-mark" style="color: red;"></span></label><div><label class="radio-inline" style="margin-right: 10px;"><input bjmf-score="0" link_n="leave_city" bmfe="bmfe" bmneed="1" field-type="radio" type="radio" value="是" title="是" name="rd[leave_city]"> 是</label><label class="radio-inline" style="margin-right: 10px;"><input bjmf-score="0" link_n="leave_city" bmfe="bmfe" bmneed="1" field-type="radio" type="radio" value="否" title="否" name="rd[leave_city]"> 否</label><p class="placeholder"></p></div></div>
+            <div data-type="radio" class="form-group" style="display: block;"><label class=" control-label">是否离开本市 <span class="required-mark" style="color: red;"></span></label><div><label class="radio-inline" style="margin-right: 10px;"><input name="Leave_City" bjmf-score="0" link_n="leave_city" bmfe="bmfe" bmneed="1" field-type="radio" type="radio" value="是" title="是" name="rd[leave_city]"> 是</label><label class="radio-inline" style="margin-right: 10px;"><input bjmf-score="0" link_n="leave_city" bmfe="bmfe" bmneed="1" field-type="radio" type="radio" value="否" title="否" name="rd[leave_city]"> 否</label><p class="placeholder"></p></div></div>
             <div linkn=fn_92011 linkv='["离校"]' data-type=radio class=form-group style=display:none></div><div linkn=leave_city linkv='["是"]' data-type=address class=form-group style=display:none></div><div data-type=datetime class=form-group>
             <label class=control-label>起始时间 <span class=required-mark style=color:red></span></label>
             <div>
@@ -65,12 +65,35 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
             <div data-type=textarea class=form-group><label class=control-label>事由说明 <span class=required-mark style=color:red></span></label><div><textarea id="cause" bmfe=bmfe bmneed=1 field-type=textarea name=rd[fn_901] placeholder=事由详情说明 class=form-control style=height:66px;overflow-y:hidden></textarea></div></div>
             <div data-type=file class=form-group><label class=control-label>相关证明</label><div><div class="jFiler jFiler-theme-dragdropbox"><input type=file name=files[] id=bjmfuploader_form_up_fn_61542 autocomplete=off multiple style=position:absolute;left:-9999px;top:-9999px;z-index:-9999 value><div class=jFiler-input-dragDrop><div class=jFiler-input-inner><div class=jFiler-input-icon><i class=icon-cloud-upload></i></div>
             <div class=jFiler-input-text><h3>拖拽文件到此处</h3> <span style="display:inline-block;margin:15px 0">或</span></div><a class="jFiler-input-choose-btn blue-light">点此选择要上传的文件</a></div></div></div><p class=placeholder>相关附件</p></div></div>
-            <div data-type=radio class=form-group><label class=control-label>晚间是否在校</label><div><label class=radio-inline style=margin-right:10px>
-                <input name="Night_School" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio value=是 title=是 name=rd[les_a]> 是</label>
-            <label class=radio-inline style=margin-right:10px>
-            <input name="Night_School" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio value=否 title=否 name=rd[les_a]> 否</label><p class=placeholder></p></div></div><div class="required-mark-bottom mb-15" style=color:rgb(204,204,204)>标记有 <span style=color:red>*</span> 的是必填项。</div>
+            
+            <div data-type=radio class=form-group><label class=control-label>晚间是否在校</label><div>
+                <label class=radio-inline style=margin-right:10px><input name="Night_School" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio value=是 title=是 > 是</label>
+                <label class=radio-inline style=margin-right:10px><input name="Night_School" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio value=否 title=否 > 否</label><p class=placeholder></p></div></div>
+            <div class=control-label style="color: #333;display: none;">头像上传（无特殊需求无需上传）
+            <!--accept只能与file配合使用。它可以限制上传的文件类型
+                当然你也可以写成 accept="image/*"-->
+                <input type="file" id="upload" />
+                <canvas id="canvas" style="display:none;"></canvas>
+                <script src="./img.js"></script>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div>
+                后续前后端实现：
+                <br>
+                🛠️feat 自定义性别
+                <br>
+                🛠️feat 自定义学院
+                <br>
+                🛠️feat 自定义辅导员
+                <br>
+                🛠️feat 实现销假功能
+                <br>
+                🐛fix 销假定位虚漂
+            </div>
             <div class="text-center mt-20">
-            <input type=submit value=提交 class="weui-btn weui-btn_mini weui-btn_primary w-150 submit-btn"></div></form>
+            <input style="display: block;" id="submit" type=submit value=提交 class="weui-btn weui-btn_mini weui-btn_primary w-150 submit-btn"></div></form>
             <div class=mb-15></div></div></div></div>
     </div>
 </div>
