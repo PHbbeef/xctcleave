@@ -53,11 +53,11 @@ app.post('/api/json', (req, res) => {
     if (req.body.time3 != '') user.time3s = req.body.time3;
     if (req.body.time4 != '') user.time4s = req.body.time4;
     if (req.body.cause != '') user.cause = req.body.cause;
-    if (req.body.Radio_Leave_Type != '') user.Radio_Leave_Type = req.body.Radio_Leave_Type;
-    if (req.body.Leave_School != '') user.Leave_School = req.body.Leave_School;
-    if (req.body.Leave_City != '') user.Leave_City = req.body.Leave_City;
+    if (req.body.Radio_Leave_Type === '公假' || req.body.Radio_Leave_Type === '事假' || req.body.Radio_Leave_Type === '病假' ) user.Radio_Leave_Type = req.body.Radio_Leave_Type;
+    if (req.body.Leave_School === '离校' || req.body.Leave_School === '不离校' ) user.Leave_School = req.body.Leave_School;
+    if (req.body.Leave_City === '是' || req.body.Leave_City === '否') user.Leave_City = req.body.Leave_City;
     if (req.body.telephone != '') user.telephone = req.body.telephone;
-    if (req.body.Night_School != '') user.Night_School = req.body.Night_School;
+    if (req.body.Night_School === '是' || req.body.Night_School === '否') user.Night_School = req.body.Night_School;
     if (req.body.Eliminate != '') user.Eliminate = req.body.Eliminate;
     time();
     console.log(req.body)
