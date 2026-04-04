@@ -146,9 +146,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <div class="label mr-10">
   <div>是否跨夜</div>
   </div>
-  <span class="badge badge-success">
-  不跨夜
-  
+  <span id="Overnight_or_not" class="badge badge-success">
   </span>
   </li>
   </ul>
@@ -160,7 +158,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <li dt="2026-03-27 12:05:00" comment user-type=0 class=breadcrumb-item><span id="name1-2" class=status-1></span>
   </li>
 
-  <li dt="2026-03-27 14:58:43" comment user-type=1 class=breadcrumb-item><span class=status10>轩冠鹏 通过</span>
+  <li dt="2026-03-27 14:58:43" comment user-type=1 class=breadcrumb-item><span id="teacher" class=status10></span>
   </li>
   </ol>
   </div>
@@ -185,7 +183,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   </div>
   <div class="list-group-item list-group-item-action">
   <div class="d-flex w-100 justify-content-between">
-  <div class=mb-1><b>轩冠鹏</b></div>
+  <div class=mb-1><b id="teacher1"></b></div>
   <small class=text-muted>
   
   <span class=status10>通过</span>
@@ -238,22 +236,33 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
       document.getElementById("telephone").innerHTML= data.telephone;
 
 
+      document.getElementById("teacher").innerHTML= data.teacher + " 通过";
+      document.getElementById("teacher1").innerHTML= data.teacher;
+
+
       const dateString = data.time1;
       const dateObject = new Date(dateString);
       const month = dateObject.getMonth() + 1; // 注意月份是从0开始的，所以需要加1
       const day = dateObject.getDate();
-      document.getElementById("time4").innerHTML = data.number + "," + "2025-机电工程学院-轩冠鹏,25汽修1班,3号公寓楼-315-1 " + data.name + "（" + `${month}` + "月" + `${day}` + "日的事假）";
+      document.getElementById("time4").innerHTML = data.number + "," + data.college  + "-" + data.teacher + "," + data.classes + ",3号公寓楼-315-1" + data.name + "（" + `${month}` + "月" + `${day}` + "日的事假）";
       //计算请假天数
       const dateday_1String = data.time1;
       const dateday_1Object = new Date(dateday_1String);
-      days_1 = dateday_1Object.getDay();
+      days_1 = dateday_1Object.getDate();
 
       const dateday_2String = data.time2;
       const dateday_2Object = new Date(dateday_2String);
-      days_2 = dateday_2Object.getDay();
+      days_2 = dateday_2Object.getDate();
 
-      days = (days_2 - days_1) + 1;
+      days =( (days_2 - days_1) + 1);
       document.getElementById("days").innerHTML = days
+
+      if( days < 1){
+        document.getElementById("Overnight_or_not").innerHTML = "跨夜"
+      }
+      else{
+        document.getElementById("Overnight_or_not").innerHTML = "不跨夜"
+      }
 
       document.getElementById("pageContent").style.display = "block";
     })

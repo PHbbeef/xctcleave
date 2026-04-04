@@ -41,7 +41,7 @@
  <small class="text-muted font-weight-light">（根据老师的要求上传，若无要求可忽略）</small></label> <div class="jFiler jFiler-theme-dragdropbox">
   <input id="remark" type=file name=files[] id=bjmfuploader_review_attachments autocomplete=off multiple style=position:absolute;left:-9999px;top:-9999px;z-index:-9999 value><div class=jFiler-input-dragDrop><div class=jFiler-input-inner><div class=jFiler-input-icon><i class=icon-cloud-upload></i></div><div class=jFiler-input-text><h3>拖拽文件到此处</h3> <span style="display:inline-block;margin:15px 0">或</span></div><a class="jFiler-input-choose-btn blue-light">点此选择要上传的文件</a></div></div></div></div> <div class="form-group clearfix mb-20"><label class=control-label>
  备注
- </label> <input type=text id=review_comment class="form-control mb-10" value></div> <a href=javascript:void(0) class="weui-btn weui-btn_primary">销假</a> </form></div></div></div> <div class=mb-25></div> <div class="weui-cells weui-cells_form light"><a href=https://xctc.g8n.cn/student/processtask/8378823 class="weui-btn_cell weui-btn_cell-primary">
+ </label> <input type=text id=review_comment class="form-control mb-10" value></div> <a href=javascript:void(0) class="weui-btn weui-btn_primary">销假</a> </form></div></div></div> <div class=mb-25></div> <div class="weui-cells weui-cells_form light"><a href='./8378823.html' class="weui-btn_cell weui-btn_cell-primary">
    查看审批流程
   </a></div> <div class=weui-cells__title>请假及审核状态</div> <div class="weui-cells weui-cells_form weui-cells__dense"><div class=weui-cell><div class=weui-cell__hd><label class=weui-label>请假人</label></div>
   <div id="name1" class=weui-cell__bd>空 <smallclass=text-muted></small> <div class="font-12 text-muted mt-5">班级：25汽修1班</div></div></div>
@@ -49,8 +49,7 @@
   <div class=weui-cell><div class=weui-cell__hd><label class=weui-label>流程方案</label></div> <div class=weui-cell__bd>
   请假小于等于3天
   </div></div> <div class=weui-cell><div class=weui-cell__hd><label class=weui-label>审批状态</label></div> <div class="weui-cell__bd green">已批准
-  </div></div> <div class=weui-cell><div class=weui-cell__hd><label class=weui-label>请假审核人</label></div> <div class=weui-cell__bd>
-  轩冠鹏
+  </div></div> <div class=weui-cell><div class=weui-cell__hd><label class=weui-label>请假审核人</label></div> <div id="teacher" class=weui-cell__bd>
   </div></div></div> <div class=weui-cells__title>
   请假内容
   </div> <div class="html-form readonly"><div data-type=radio class=form-group><label class=control-label>请假类型 <span class="required-mark sf-hidden" style=color:red>*</span></label><div>
@@ -84,6 +83,8 @@
 
       document.getElementById("telephone").value = data.telephone;
 
+      document.getElementById("teacher").innerHTML= data.teacher;
+
       document.getElementById("pageContent").style.display = "block";
 
       
@@ -114,7 +115,7 @@
 
       // 离校
       function Leave_School1(){
-        if(Radio_Leave_Type_check == "离校"){
+        if(Leave_School == "离校"){
           document.getElementById("Leave_School1").checked=true
           document.getElementById("Leave_School1_1").style.color = "#007bff";
         }
@@ -126,7 +127,7 @@
 
       // 离开本市
       function Leave_City1(){
-        if(Radio_Leave_Type_check == "是"){
+        if(Leave_City == "是"){
           document.getElementById("Leave_City1").checked=true
           document.getElementById("Leave_City1_1").style.color = "#007bff";
         }

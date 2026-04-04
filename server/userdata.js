@@ -3,89 +3,29 @@
 */
 
 
+var fs = require("fs")  // 文件读写操作
 
-
-
-// 学号
-var numbers = [
-  '',
-];
-
-// 姓名
-var names = [
-  '',
-];
-
-// 请假开始日期
-var time1s = [
-  '',
-];
-
-// 请假结束日期
-var time2s = [
-  '',
-];
-
-// 假条发起时间
-var time3s = [
-  '',
-];
-
-// 假条通过时间
-var time4s = [
-  '',
-];
-
-
-// 请假原因
-var cause = [
-  '',
-];
-
-// 请假类型
-var Radio_Leave_Type = [
-  '',
-];
-
-// 是否离校
-var Leave_School = [
-  '',
-];
-
-// 是否离开本市
-var Leave_City = [
-  '',
-];
-
-// 联系电话
-var telephone = [
-  '',
-];
-
-// 夜晚是否在校
-var Night_School = [
-  '',
-];
-
-
-
-
-
-// 处理时间修改字符
-function time(){
-  let isoStr1 = time1s
-  let isoStr2 = time2s;
-  let isoStr3 = time3s;
-  let isoStr4 = time4s;
-  let readable1 = isoStr1.replace('T', ' ');
-  let readable2 = isoStr2.replace('T', ' ');
-  let readable3 = isoStr3.replace('T', ' ');
-  let readable4 = isoStr4.replace('T', ' ');
-  time1s = readable1;
-  time2s = readable2;
-  time3s = readable3;
-  time4s = readable4;
-}
+// 用户数据
+const date = {
+  numbers: '',          // 学号
+  names: '',            // 姓名
+  sex: '男',            // 性别
+  college: '2025-机电工程学院', // 学院
+  classes: '25汽修1班', // 班级
+  teacher: '轩冠鹏',     // 辅导员
+  time1s: '',           // 请假开始日期
+  time2s: '',           // 请假截至日期
+  time3s: '',           // 假条发起时间
+  time4s: '',           // 假条通过时间
+  cause: '',            // 请假原因
+  Radio_Leave_Type: '', // 请假类型
+  Leave_School: '',     // 是否离校
+  Leave_City: '',       // 是否离开本市
+  telephone: '',        // 联系电话
+  Night_School: '',     // 夜晚是否在校
+  Eliminate: '',        // 销假状态
+  picture: ''           // 头像
+};
 
 
 
@@ -99,3 +39,5 @@ function log(a){
       console.log('File written successfully');
   });
 }
+
+module.exports = { date, log };

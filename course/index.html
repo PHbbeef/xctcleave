@@ -69,8 +69,8 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   </div>
   <div class="col d-flex flex-column justify-content-center pl-0">
   <p class="h5 mb-15 mt-5 text-dark"><span class=h6>姓名：</span><b  id="name1">1</b></p>
-  <p class="h6 mb-10 font-weight-normal">性别：男</p>
-  <p class="h6 mb-10 font-weight-normal">院系：2025-机电工程学院-轩冠鹏</p>
+  <p class="h6 mb-10 font-weight-normal" id="sex"></p>
+  <p class="h6 mb-10 font-weight-normal" id="college_teacher">院系：2025-机电工程学院-轩冠鹏</p>
   <p id="number1" class="h6 mb-10 font-weight-normal"></p>
   </div>
   </div>
@@ -99,7 +99,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <table class="table bottom-table table-sm table-borderless mt-30">
   <tbody><tr>
   <th>审批人：</th>
-  <td class=text-dark>轩冠鹏</td>
+  <td id="teacher" class=text-dark></td>
   </tr>
   <tr>
   <th>批准时间：</th>
@@ -131,13 +131,28 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
 
       document.getElementById("pageContent").style.display = "block";
 
+      let Leave_School = data.Leave_School;
       let Leave_City = data.Leave_City;
-      if(Leave_City == "是"){
-        document.getElementById("Leave_City").innerHTML= "离开本市";
+
+      if(Leave_School == "离校")
+      {
+        if(Leave_City == "是"){
+          document.getElementById("Leave_City").innerHTML= "离开本市";
+        }
+      }
+      else if(Leave_School == "离校")
+      {
+        if(Leave_City == "否"){
+          document.getElementById("Leave_City").innerHTML= "离校不出市";
+        }
       }
       else{
-        document.getElementById("Leave_City").innerHTML= "离校不出市";
+        document.getElementById("Leave_City").innerHTML= "不离校不出市";
       }
+
+      document.getElementById("sex").innerHTML= "性别：" + data.sex;
+      document.getElementById("college_teacher").innerHTML= "院系：" + data.college + "-" + data.teacher;
+      document.getElementById("teacher").innerHTML= data.teacher;
 
     });
   </script>

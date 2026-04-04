@@ -2,17 +2,6 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     // 阻止表单的默认提交行为
     event.preventDefault();
 
-    // 获取表单数据
-
-    /*
-        Radio_Leave_Type    请假类型
-        Leave_School        是否离校
-        Leave_City          是否离开本市
-        telephone           联系电话
-        Night_School        夜晚是否在校
-
-    */
-
     // 获取 请假类型
     var Radio_Leave_Type = document.getElementsByName("Radio_Leave_Type"); 
     for(var i=0; i<Radio_Leave_Type.length; i++){
@@ -45,6 +34,14 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
         }
     }
 
+    // 获取性别
+    var sex = document.getElementsByName("sex"); 
+    for(var i=0; i<sex.length; i++){
+        if(sex[i].checked){
+            sex = sex[i].value;
+        }
+    }
+
 
     // 获取姓名
     const name = document.getElementById('name').value;
@@ -64,6 +61,12 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     const time4s = document.getElementById('time4').value;
     // 假条状态
     const Eliminate = "false"
+    // 学院
+    const college = document.getElementById('college').value;
+    // 班级
+    const classes = document.getElementById('classes').value;
+    // 辅导员
+    const teacher = document.getElementById('teacher').value;
 
     // document.getElementById('image').addEventListener('change', function (event) {
     //     const file = event.target.files[0];
@@ -94,7 +97,12 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
         telephone:telephone,
         Night_School:Night_School,
         Eliminate:Eliminate,
-        picture:dataURL
+        sex:sex,
+        college:college,
+        classes:classes,
+        teacher:teacher
+
+        // picture:dataURL
     };
 
     // 将数据转换为JSON字符串
@@ -116,29 +124,11 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     })
     .then(data => {
         console.log('成功:', data);
-        clear();
         alert("数据已修改")
+        location.reload()
     })
     .catch((error) => {
         console.error('出错:', error);
-        alert("错误联系管理员")
-        clear();
+        alert("数据错误" + error)
     });
-
-    // 清除表单内容
-    function clear(){
-            document.getElementById('number').value ="";
-            document.getElementById('name').value ="";
-            document.getElementById('telephone').value = "";
-            document.getElementById('cause').value = "";
-            document.getElementById('time1').value = "";
-            document.getElementById('time2').value = "";
-            document.getElementById('time3').value = "";
-            document.getElementById('time4').value = "";
-
-            document.getElementsByName = "";
-            document.getElementsByName = "";
-            document.getElementsByName = "";
-            document.getElementsByName = "";
-        }
 });

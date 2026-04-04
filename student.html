@@ -20,8 +20,8 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   </header>
   <div class=page-content><div class=pt-3 id=mainarea style="padding:80px 10px">
   <div class="card mb-3 course" course_id=123909><div class=card-body style="background:linear-gradient(200deg,#FFD3A5 5%,#FD6585 100%);border-radius:8px;padding:22px 10px">
-  <a href=./course/123909.html class=media><div class=media-body><h5 style=color:#fff class=course_name>2025-机电工程学院-轩冠鹏</h5>
-  <p style=color:#fff>25汽修1班</p></div>
+  <a href=./course/123909.html class=media><div class=media-body><h5 style=color:#fff class=course_name id="college_teacher"></h5>
+  <p id="classes" style=color:#fff></p></div>
   </a></div></div>
   <hr class=mt-4>
   <div class="menu-list row">
@@ -49,6 +49,8 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <script>
     $.get("https://xctc.drlihui.eu.org/api", function(data) {
       document.getElementById("name2").innerHTML= "当前账号：" + data.name +"(" + data.number + ")";   // 姓名加学号
+      document.getElementById("college_teacher").innerHTML= data.college + "-" + data.teacher;
+      document.getElementById("classes").innerHTML= data.classes
 
       document.getElementById("pageContent").style.display = "block";
     })

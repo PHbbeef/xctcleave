@@ -37,29 +37,31 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
             <div style="margin-top: 5px;" data-type=radio class=form-group><label class=control-label>请假类型 <span class=required-mark style=color:red></span></label><div>
                 <label style=margin-right:10px><input name="Radio_Leave_Type" bjmf-score=0 link_n=fn_87090 bmfe=bmfe bmneed=1 field-type=radio type=radio value=公假 title=公假 name=rd[fn_87090]> 公假</label>
                 <label style=margin-right:10px><input name="Radio_Leave_Type" bjmf-score=0 link_n=fn_87090 bmfe=bmfe bmneed=1 field-type=radio type=radio value=事假 title=事假 name=rd[fn_87090]> 事假</label>
-                <label style=margin-right:10px><input name="Radio_Leave_Type" bjmf-score=0 link_n=fn_87090 bmfe=bmfe bmneed=1 field-type=radio type=radio value=病假 title=病假 name=rd[fn_87090]> 病假</label><p class=placeholder>公假：活动、实习等原因</p></div>
+                <label style=margin-right:10px><input name="Radio_Leave_Type" bjmf-score=0 link_n=fn_87090 bmfe=bmfe bmneed=1 field-type=radio type=radio value=病假 title=病假 name=rd[fn_87090]> 病假</label>
             </div>
             <div data-type=radio class=form-group>
                 <label class=control-label>是否离校 <span class=required-mark style=color:red></span></label><div>
                     <label class=radio-inline style=margin-right:10px><input name="Leave_School" bjmf-score=0 link_n=fn_92011 bmfe=bmfe bmneed=1 field-type=radio type=radio value=离校 title=离校 name=rd[fn_92011]> 离校</label>
                     <label class=radio-inline style=margin-right:10px><input name="Leave_School" bjmf-score=0 link_n=fn_92011 bmfe=bmfe bmneed=1 field-type=radio type=radio value=不离校 title=不离校 name=rd[fn_92011]> 不离校</label>
-            <div data-type="radio" class="form-group" style="display: block;"><label class=" control-label">是否离开本市 <span class="required-mark" style="color: red;"></span></label><div><label class="radio-inline" style="margin-right: 10px;"><input name="Leave_City" bjmf-score="0" link_n="leave_city" bmfe="bmfe" bmneed="1" field-type="radio" type="radio" value="是" title="是" name="rd[leave_city]"> 是</label><label class="radio-inline" style="margin-right: 10px;"><input bjmf-score="0" link_n="leave_city" bmfe="bmfe" bmneed="1" field-type="radio" type="radio" value="否" title="否" name="rd[leave_city]"> 否</label><p class="placeholder"></p></div></div>
+            <div data-type="radio" class="form-group" style="display: block;"><label class=" control-label">是否离开本市 <span class="required-mark" style="color: red;"></span></label><div><label class="radio-inline" style="margin-right: 10px;">
+                <input name="Leave_City" bjmf-score="0" link_n="leave_city" bmfe="bmfe" bmneed="1" field-type="radio" type="radio" value="是" title="是" name="rd[leave_city]"> 是</label><label class="radio-inline" style="margin-right: 10px;">
+                <input name="Leave_City" bjmf-score="0" link_n="leave_city" bmfe="bmfe" bmneed="1" field-type="radio" type="radio" value="否" title="否" name="rd[leave_city]"> 否</label><p class="placeholder"></p></div></div>
             <div linkn=fn_92011 linkv='["离校"]' data-type=radio class=form-group style=display:none></div><div linkn=leave_city linkv='["是"]' data-type=address class=form-group style=display:none></div><div data-type=datetime class=form-group>
             <label class=control-label>起始时间 <span class=required-mark style=color:red></span></label>
             <div>
                 <!-- 开始时间 -->
-                <input id="time1" type="datetime-local" id="StartDate" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" min="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" max="@DateTime.Now.ToString("yyyy-MM-dd 23:59")" style="border:1px solid rgb(229,230,231);width: 100%; "required />
+                <input id="time1" type="datetime-local" id="StartDate" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" min="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" max="@DateTime.Now.ToString("yyyy-MM-dd 23:59")" style="border:1px solid rgb(229,230,231);width: 100%; " />
             </div>
             <div data-type=datetime calc-leave-days class=form-group>
                 <label class=control-label>结束时间 <span class=required-mark style=color:red></span></label>
             <div>
                <!-- 结束时间 -->
-            <input id="time2" type="datetime-local" id="StartDate" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" min="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" max="@DateTime.Now.ToString("yyyy-MM-dd 23:59")" style="border:1px solid rgb(229,230,231);width: 100%;"required />
+            <input id="time2" type="datetime-local" id="StartDate" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" min="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" max="@DateTime.Now.ToString("yyyy-MM-dd 23:59")" style="border:1px solid rgb(229,230,231);width: 100%;" />
             <label class=control-label style="color: #333;">假条发起时间<span class=required-mark style=color:red></span></label>
-                <input id="time3" type="datetime-local" id="StartDate" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" min="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" max="@DateTime.Now.ToString("yyyy-MM-dd 23:59")" style="border:1px solid rgb(229,230,231);width: 100%;"required />
+                <input id="time3" type="datetime-local" id="StartDate" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" min="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" max="@DateTime.Now.ToString("yyyy-MM-dd 23:59")" style="border:1px solid rgb(229,230,231);width: 100%;" />
             <label class=control-label style="color: #333;">假条通过时间<span class=required-mark style=color:red></span></label>
-                <input id="time4" type="datetime-local" id="StartDate" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" min="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" max="@DateTime.Now.ToString("yyyy-MM-dd 23:59")" style="border:1px solid rgb(229,230,231);width: 100%;"required />
-            <div >不足一天按一天计算<span class="text-primary ml-15 float-right pointer"></span></div>
+                <input id="time4" type="datetime-local" id="StartDate" value="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" min="@DateTime.Now.ToString("yyyy-MM-dd 00:00")" max="@DateTime.Now.ToString("yyyy-MM-dd 23:59")" style="border:1px solid rgb(229,230,231);width: 100%;" />
+            <div ><span class="text-primary ml-15 float-right pointer"></span></div>
             <div data-type=text class=form-group><label class=control-label>联系电话</label>
             <div><input id="telephone" bmfe=bmfe field-type=text type=text name=rd[fn_90886] placeholder=期间可联系到本人的号码 dic vchk class=form-control value></div></div>
             <div data-type=textarea class=form-group><label class=control-label>事由说明 <span class=required-mark style=color:red></span></label><div><textarea id="cause" bmfe=bmfe bmneed=1 field-type=textarea name=rd[fn_901] placeholder=事由详情说明 class=form-control style=height:66px;overflow-y:hidden></textarea></div></div>
@@ -69,7 +71,10 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
             <div data-type=radio class=form-group><label class=control-label>晚间是否在校</label><div>
                 <label class=radio-inline style=margin-right:10px><input name="Night_School" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio value=是 title=是 > 是</label>
                 <label class=radio-inline style=margin-right:10px><input name="Night_School" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio value=否 title=否 > 否</label><p class=placeholder></p></div></div>
-            <div class=control-label style="color: #333;display: none;">头像上传（无特殊需求无需上传）
+            
+            <div style="color: red;">注：以下无特殊需求无需填写、上传。
+            </div>
+            <div class=control-label style="color: #333;display: block;">头像上传（默认：无头像）
             <!--accept只能与file配合使用。它可以限制上传的文件类型
                 当然你也可以写成 accept="image/*"-->
                 <input type="file" id="upload" />
@@ -77,21 +82,27 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
                 <script src="./img.js"></script>
             </div>
             <br>
-            <br>
-            <br>
             <div>
-                后续前后端实现：
+                    <label class=control-label style="color: #333;">性别（默认：男）</label>
+                    <label><input name="sex" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio value=男 title=男 > 男</label>
+                    <label><input name="sex" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio value=女 title=女 > 女</label>
                 <br>
-                🛠️feat 自定义性别
                 <br>
-                🛠️feat 自定义学院
+                    <label class=control-label style="color: #333;">学院</label>
+                    <label><input placeholder=默认：2025-机电工程学院 type=text id="college" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio></label>
+
                 <br>
-                🛠️feat 自定义辅导员
                 <br>
-                🛠️feat 实现销假功能
+                    <label class=control-label style="color: #333;">班级</label>
+                    <label><input placeholder=默认：25汽修1班 type=text id="classes" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio></label>
                 <br>
-                🐛fix 销假定位虚漂
+                <br>
+                    <label class=control-label style="color: #333;">辅导员</label>
+                    <label><input placeholder=默认：轩冠鹏 type=text id="teacher" bjmf-score=0 link_n=les_a bmfe=bmfe field-type=radio type=radio></label>
             </div>
+            <br>
+            <br>
+            <br>
             <div class="text-center mt-20">
             <input style="display: block;" id="submit" type=submit value=提交 class="weui-btn weui-btn_mini weui-btn_primary w-150 submit-btn"></div></form>
             <div class=mb-15></div></div></div></div>
