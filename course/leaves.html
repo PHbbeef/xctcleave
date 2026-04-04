@@ -32,17 +32,17 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <a href='./leaves-add.html' class="btn btn-link btn-block mb-30 btn-lg bg-white">
   <i class="la la-plus"></i> 新建请假申请
   </a></div><div id="name2"><strong></strong>  提交的请假申请
-  </div> <div class="weui-cells weui-cells_separated weui-cells_rounded mb-20"><a href="processtask.html" class="weui-cell weui-cell_access">
-  <div class=weui-cell__bd><div class=weui-cell__bd__hd>
+  </div><div class="weui-cells weui-cells_separated weui-cells_rounded mb-20"><a href="processtask.html" class="weui-cell weui-cell_access">
+  <div class=weui-cell__bd><div class=weui-cell__bd__hd><label class="text-primary badge-circle" style="display: none;" id="leave_permit" >销</label>
   </span><span>事假</span> <small class=text-danger>（离校）</small></div> 
   <div id="cause" class=weui-cell__bd__bd>请假原因: 家中有事</div> 
   <div id="time1" class=weui-cell__bd__bd></div> 
   <div id="time3" class=weui-cell__bd__bd></div>
   <p id="teacher1" class=weui-cell__bd__bd></p>
   <div class=weui-cell__bd__bd_status>
-  <span href=baidu.com class=green>已批准</span>
+  <span id="approval_status" class=green>已批准</span>
   <i class="la la-angle-right ml-10"></i>
-  <span class="text-primary pull-right link" style="float: right !important;">出示假条</span>
+  <span id="leave_permit_show" class="text-primary pull-right link" style="float: right !important;display: block;">出示假条</span>
   </div></div>
   <div class=weui-cell__ft></div></a><a href=https://xctc.g8n.cn/student/course/123909/leaves/11916038 class="weui-cell weui-cell_access"><div class=weui-cell__bd><div class=weui-cell__bd__hd><span class="text-primary badge-circle">销</span> <span>事假</span> <small class=text-danger>（离校）</small></div> <div class=weui-cell__bd__bd>请假原因: 外出购物物品</div> <div class=weui-cell__bd__bd>请假时间: 2026-03-13 15:30 ~ 2026-03-13 20:00</div> <div class=weui-cell__bd__bd>申请时间: 2026年03月13日 12:25</div> <p id="teacher2" class=weui-cell__bd__bd></p> <div class=weui-cell__bd__bd_status><span class=green>已销假</span> <i class="la la-angle-right ml-10"></i> </div></div> <div class=weui-cell__ft></div></a><a href=https://xctc.g8n.cn/student/course/123909/leaves/11652357 class="weui-cell weui-cell_access"><div class=weui-cell__bd><div class=weui-cell__bd__hd><span class="text-primary badge-circle">销</span> <span>事假</span> <small class=text-danger>（离校）</small></div> <div class=weui-cell__bd__bd>请假原因: 回家</div> <div class=weui-cell__bd__bd>请假时间: 2026-01-14 14:00 ~ 2026-01-14 23:00</div> <div class=weui-cell__bd__bd>申请时间: 2026年01月14日 12:54</div> <p id="teacher3" class=weui-cell__bd__bd></p> <div class=weui-cell__bd__bd_status><span class=green>已销假</span> <i class="la la-angle-right ml-10"></i> </div></div> <div class=weui-cell__ft></div></a><a href=https://xctc.g8n.cn/student/course/123909/leaves/11620171 class="weui-cell weui-cell_access"><div class=weui-cell__bd><div class=weui-cell__bd__hd><span class="text-primary badge-circle">销</span> <span>事假</span> <small class=text-danger>（离校）</small></div> <div class=weui-cell__bd__bd>请假原因: 公园散步</div> <div class=weui-cell__bd__bd>请假时间: 2026-01-09 14:30 ~ 2026-01-09 20:00</div> <div class=weui-cell__bd__bd>申请时间: 2026年01月09日 12:26</div> <p id="teacher4" class=weui-cell__bd__bd></p> <div class=weui-cell__bd__bd_status><span class=green>已销假</span> <i class="la la-angle-right ml-10"></i> </div></div> <div class=weui-cell__ft></div></a><a href=https://xctc.g8n.cn/student/course/123909/leaves/11574223 class="weui-cell weui-cell_access"><div class=weui-cell__bd><div class=weui-cell__bd__hd><span class="text-primary badge-circle">销</span> <span>事假</span> <small class=text-danger>（离校）</small></div> <div class=weui-cell__bd__bd>请假原因: 家里结婚</div> <div class=weui-cell__bd__bd>请假时间: 2026-01-05 08:00 ~ 2026-01-07 20:00</div> <div class=weui-cell__bd__bd>申请时间: 2026年01月04日 10:03</div> <p id="teacher5" class=weui-cell__bd__bd></p> <div class=weui-cell__bd__bd_status><span class=green>已销假</span> <i class="la la-angle-right ml-10"></i> </div></div> <div class=weui-cell__ft></div></a> </div> <div class="text-center mv-15"><a href=javascript:void(0) class="font-12 silver">加载所有</a></div></div></div></div>
   
@@ -60,6 +60,21 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
       document.getElementById("teacher3").innerHTML= "审核人：" + data.teacher;
       document.getElementById("teacher4").innerHTML= "审核人：" + data.teacher;
       document.getElementById("teacher5").innerHTML= "审核人：" + data.teacher;
+
+      // 判断假条状态
+      let Eliminate = data.Eliminate;
+      Eliminate1();
+
+     function Eliminate1(){
+        if(Eliminate == "true"){
+          document.getElementById("leave_permit").style.display = "";
+          document.getElementById("approval_status").innerHTML= "已销假";
+          document.getElementById("leave_permit_show").style.display = "none";
+        }
+        else{
+          1
+        }
+      }
 
       document.getElementById("pageContent").style.display = "block";
     })

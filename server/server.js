@@ -23,6 +23,7 @@ const userdate = {
   time2s: '',           // 请假截至日期
   time3s: '',           // 假条发起时间
   time4s: '',           // 假条通过时间
+  time5s: '',           // 假条销假时间
   cause: '',            // 请假原因
   Radio_Leave_Type: '', // 请假类型
   Leave_School: '',     // 是否离校
@@ -40,6 +41,7 @@ user = userdate
 app.use(express.json());
 app.post('/api/json', (req, res) => {
     res.json({ message: '数据接收成功', received: req.body });
+    user.picture = req.body.picture
     if (req.body.number != '') user.numbers = req.body.number;
     if (req.body.name != '') user.names = req.body.name;
     if (req.body.sex === "男" || req.body.sex === "女") user.sex = req.body.sex;
@@ -57,16 +59,19 @@ app.post('/api/json', (req, res) => {
     if (req.body.telephone != '') user.telephone = req.body.telephone;
     if (req.body.Night_School != '') user.Night_School = req.body.Night_School;
     if (req.body.Eliminate != '') user.Eliminate = req.body.Eliminate;
-    if (req.body.picture != '') user.picture = req.body.picture;
     time();
-  // head_picture(); // 前端是否有头像传入
-   console.log(req.body)
-  //  user.log( `${date}：`+ `JSON{ 学号:${numbers} 姓名:${names} 开始:${time1s} 截至:${time2s} 批准:${time3s}} 类型:${Radio_Leave_Type}} 是否离校:${Leave_School}} 是否离开本市:${Leave_City}} 联系电话:${telephone}} 事由说明:${cause}} 晚间是否在校:${Night_School}}`)
+    console.log(req.body)
 });
 
 app.post('/api/jpg/json', (req, res) => {
-    picture  = req.body.picture
+    user.picture = req.body.picture;
 });
+
+app.post('/api/Eliminate', (req, res) => {
+    user.Eliminate = req.body.Eliminate;
+    user.time5s   =  req.body.time5s;
+});
+
 
 // 处理时间修改字符
 function time(){
@@ -99,6 +104,7 @@ app.get('/api',
   (request,response) => {
     response.json(
       {
+        "picture":user.picture,
         "number":user.numbers,
         "name":user.names,
         "sex":user.sex,
@@ -109,14 +115,14 @@ app.get('/api',
         "time2":user.time2s,
         "time3":user.time3s,   // 假条发起时间
         "time4":user.time4s,   // 假条通过时间
+        "time5":user.time5s,
         "cause":user.cause,
         "Radio_Leave_Type":user.Radio_Leave_Type,
         "Leave_City":user.Leave_City,
         "Leave_School":user.Leave_School,
         "telephone":user.telephone,
         "Night_School":user.Night_School,
-        "Eliminate":user.Eliminate,
-        "picture":user.picture
+        "Eliminate":user.Eliminate
       }
     );
   });

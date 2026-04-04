@@ -77,7 +77,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
     <!-- 销假提交时间 -->
     <li class="list-group-item d-flex justify-content-between align-items-start flex-wrap">
         <div class="label fw-semibold me-3">销假提交时间</div>
-        <div class="value">2026-03-27 16:49:04</div>
+        <div id="time5" class="value"></div>
     </li>
 </ul>
 
@@ -195,13 +195,12 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   </ul>
   </div>
   
-  <div>审批方案：请假小于等于3天（2025请假）</div>
+  <div>审批方案：无需审核（2025销假）</div>
   <div>
   <ol class=breadcrumb style=overflow-x:auto>
   <li dt="2026-03-27 12:05:00" comment user-type=0 class=breadcrumb-item><span id="name1-2" class=status-1></span>
   </li>
 
-  <li dt="2026-03-27 14:58:43" comment user-type=1 class=breadcrumb-item><span id="teacher" class=status10></span>
   </li>
   </ol>
   </div>
@@ -216,25 +215,11 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   <div class="d-flex w-100 justify-content-between">
   <div class=mb-1><b id="name1"></b></div>
   <small class=text-muted>
-  <span class=status-1>发起</span>
+  <span class=status-1>通过</span>
   </small>
   </div>
   <div class="d-flex w-100 justify-content-between">
   <p id="time1-1" class=mb-1></p>
-  </div>
-  <small class=text-muted></small>
-  </div>
-  <div class="list-group-item list-group-item-action">
-  <div class="d-flex w-100 justify-content-between">
-  <div class=mb-1><b id="teacher1"></b></div>
-  <small class=text-muted>
-  
-  <span class=status10>通过</span>
-  </small>
-  </div>
-  <div class="d-flex w-100 justify-content-between">
-  <p id="time3" class=mb-1>
-  </p>
   </div>
   <small class=text-muted></small>
   </div>
@@ -269,7 +254,6 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
       document.getElementById("time1").innerHTML = data.time1;
       document.getElementById("time1-1").innerHTML = data.time1;  // 发起申请时间
       document.getElementById("time2").innerHTML = data.time2;
-      document.getElementById("time3").innerHTML = data.time3;    // 批准时间
 
       document.getElementById("cause").innerHTML= data.cause;
 
@@ -278,16 +262,15 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
       document.getElementById("Leave_City").innerHTML= data.Leave_City;
       document.getElementById("telephone").innerHTML= data.telephone;
 
+      document.getElementById("time5").innerHTML= data.time5;
 
-      document.getElementById("teacher").innerHTML= data.teacher + " 通过";
-      document.getElementById("teacher1").innerHTML= data.teacher;
 
 
       const dateString = data.time1;
       const dateObject = new Date(dateString);
       const month = dateObject.getMonth() + 1; // 注意月份是从0开始的，所以需要加1
       const day = dateObject.getDate();
-      document.getElementById("time4").innerHTML = data.number + "," + data.college  + "-" + data.teacher + "," + data.classes + ",3号公寓楼-315-1"+ data.name + "（" + `${month}` + "月" + `${day}` + "日的事假）";
+      document.getElementById("time4").innerHTML = data.number + "," + data.college  + "-" + data.teacher + "," + data.classes + ",3号公寓楼-315-1"+ " 销假" + "（" + `${month}` + "月" + `${day}` + "日的事假）";
       //计算请假天数
       const dateday_1String = data.time1;
       const dateday_1Object = new Date(dateday_1String);
@@ -305,6 +288,16 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
       }
       else{
         document.getElementById("Overnight_or_not").innerHTML = "不跨夜"
+      }
+
+      const Eliminate = data.Eliminate
+      Eliminate1()
+
+      function Eliminate1(){
+        if (Eliminate == "true"){
+          document.getElementById("leave_permit").style.display = "block";
+
+        }
       }
 
 

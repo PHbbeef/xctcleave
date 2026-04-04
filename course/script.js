@@ -81,54 +81,88 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
     // }
     // });
 
+    const fileInput = document.getElementById('imageInput');
+    const file = fileInput.files[0];
+    if(file){
 
-    // 创建JSON对象
-    const data = {
-        number: number,
-        name: name,
-        time1: time1s,
-        time2: time2s,
-        time3: time3s,
-        time4: time4s,
-        cause: cause,
-        Radio_Leave_Type:Radio_Leave_Type,
-        Leave_School:Leave_School,
-        Leave_City:Leave_City,
-        telephone:telephone,
-        Night_School:Night_School,
-        Eliminate:Eliminate,
-        sex:sex,
-        college:college,
-        classes:classes,
-        teacher:teacher
+        const formData = new FormData();
+        formData.append('image',file);
+        fetch('http://127.0.0.1/img.scdn.io/api/v1.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            const imageUrl = data.url;
+            console.log(imageUrl)
+            data_post(imageUrl)
+            
+        })
+        .catch(error => {
+            console.error('图片上传失败:', error);
+            alert(失败图片上传)
+        });
+    }
+    else{data_post();}
 
-        // picture:dataURL
-    };
+
+    function data_post(a){
+
+        // 创建JSON对象
+        const data = {
+            picture:a,
+            number: number,
+            name: name,
+            time1: time1s,
+            time2: time2s,
+            time3: time3s,
+            time4: time4s,
+            cause: cause,
+            Radio_Leave_Type:Radio_Leave_Type,
+            Leave_School:Leave_School,
+            Leave_City:Leave_City,
+            telephone:telephone,
+            Night_School:Night_School,
+            Eliminate:Eliminate,
+            sex:sex,
+            college:college,
+            classes:classes,
+            teacher:teacher,
+            Eliminate:"false"
+
+            // picture:dataURL
+        };
+
 
     // 将数据转换为JSON字符串
-    const jsonData = JSON.stringify(data);
+        const jsonData = JSON.stringify(data);
 
-    // 发送JSON数据到服务器
-    fetch("https://xctc.drlihui.eu.org/api/json",{
-        method: 'POST', // 使用 POST 请求
-        headers: {
-            'Content-Type': 'application/json' // 指定内容类型为 JSON
-        },
-        body: jsonData
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('网络响应错误');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('成功:', data);
-        alert("数据已修改")
-        location.reload()
-    })
-    .catch((error) => {
-        console.error('出错:', error);
-        alert("数据错误" + error)
-    });
+        // 发送JSON数据到服务器
+        fetch("https://xctc.drlihui.eu.org/api/json",{
+            method: 'POST', // 使用 POST 请求
+            headers: {
+                'Content-Type': 'application/json' // 指定内容类型为 JSON
+            },
+            body: jsonData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('网络响应错误');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('成功:', data);
+            alert("数据已修改")
+            location.reload()
+        })
+        .catch((error) => {
+            console.error('出错:', error);
+            alert("数据错误" + error)
+        });
+    }
 });
+
+document.getElementById('weui-btn weui-btn_primary').addEventListener('click', function() {
+    console.log(233)
+})
