@@ -13,6 +13,7 @@ const dateObject = new Date(date);
 
 // 用户数据
 const userdate = {
+  picture: '0',          // 头像
   numbers: '',          // 学号
   names: '',            // 姓名
   sex: '男',            // 性别
@@ -30,8 +31,8 @@ const userdate = {
   Leave_City: '',       // 是否离开本市
   telephone: '',        // 联系电话
   Night_School: '',     // 夜晚是否在校
-  Eliminate: '',        // 销假状态
-  picture: ''           // 头像
+  Eliminate: ''        // 销假状态
+
 };
 
 user = userdate
@@ -41,13 +42,13 @@ user = userdate
 app.use(express.json());
 app.post('/api/json', (req, res) => {
     res.json({ message: '数据接收成功', received: req.body });
-    user.picture = req.body.picture
+    if (req.body.picture === ""){user.picture = "0";}else{user.picture = req.body.picture}
     if (req.body.number != '') user.numbers = req.body.number;
     if (req.body.name != '') user.names = req.body.name;
-    if (req.body.sex === "男" || req.body.sex === "女") user.sex = req.body.sex;
-    if (req.body.college != '') user.college = req.body.college;
-    if (req.body.classes != '') user.classes = req.body.classes;
-    if (req.body.teacher != '') user.teacher = req.body.teacher;
+    if (req.body.sex === "男" || req.body.sex === "女"){user.sex = req.body.sex;}else{user.sex = "男"}
+    if (req.body.college != ''){user.college = req.body.college;}else{user.college = "2025-机电工程学院"}
+    if (req.body.classes != '') {user.classes = req.body.classes;}else{user.classes = "25汽修1班"}
+    if (req.body.teacher != '') {user.teacher = req.body.teacher;}else{user.teacher = "轩冠鹏"}
     if (req.body.time1 != '') user.time1s = req.body.time1;
     if (req.body.time2 != '') user.time2s = req.body.time2;
     if (req.body.time3 != '') user.time3s = req.body.time3;
@@ -61,10 +62,6 @@ app.post('/api/json', (req, res) => {
     if (req.body.Eliminate != '') user.Eliminate = req.body.Eliminate;
     time();
     console.log(req.body)
-});
-
-app.post('/api/jpg/json', (req, res) => {
-    user.picture = req.body.picture;
 });
 
 app.post('/api/Eliminate', (req, res) => {
