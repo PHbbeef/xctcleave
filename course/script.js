@@ -87,7 +87,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
 
         const formData = new FormData();
         formData.append('image',file);
-        fetch('http://127.0.0.1/img.scdn.io/api/v1.php', {
+        fetch('https://xctc.drlihui.eu.org/img.scdn.io/api/v1.php', {
             method: 'POST',
             body: formData
         })
@@ -100,7 +100,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
         })
         .catch(error => {
             console.error('图片上传失败:', error);
-            alert(失败图片上传)
+            data_post()
         });
     }
     else{data_post();}
@@ -162,7 +162,3 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
         });
     }
 });
-
-document.getElementById('weui-btn weui-btn_primary').addEventListener('click', function() {
-    console.log(233)
-})
