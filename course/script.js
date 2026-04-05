@@ -91,7 +91,12 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('网络响应错误');
+            }
+            return response.json();
+        })
         .then(data => {
             const imageUrl = data.url;
             console.log(imageUrl)
