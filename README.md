@@ -6,3 +6,8 @@
 + 前端 HTML CSS JS
 + 后端 Nodejs
 + 服务端 Nginx
+
+
+## 如何部署此项目
+详细见文档
+[文档](https://github.com/PHbbeef/xctcleave/wiki/)
