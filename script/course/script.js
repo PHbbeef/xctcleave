@@ -132,7 +132,7 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
             const jsonData = JSON.stringify(data);
 
             // 发送JSON数据到服务器
-            fetch("https://xctc.drlihui.eu.org/api/json",{
+            fetch("http://127.0.0.1/api/json",{
                 method: 'POST', // 使用 POST 请求
                 headers: {
                     'Content-Type': 'application/json' // 指定内容类型为 JSON

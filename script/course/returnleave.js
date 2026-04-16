@@ -1,3 +1,5 @@
+// 假条销假页面
+
 function showAlert() {
 
     const now = new Date();
@@ -18,7 +20,7 @@ function showAlert() {
     const jsonData = JSON.stringify(data);
 
     // 发送JSON数据到服务器
-    fetch("https://xctc.drlihui.eu.org/api/Eliminate",{
+    fetch("http://127.0.0.1/api/Eliminate",{
         method: 'POST', // 使用 POST 请求
         headers: {
             'Content-Type': 'application/json' // 指定内容类型为 JSON

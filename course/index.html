@@ -121,70 +121,7 @@ body{--weui-BTN-HEIGHT:48;--weui-BTN-HEIGHT-MEDIUM:40;--weui-BTN-HEIGHT-SMALL:32
   
   <style class=sf-hidden>.time-table th,.bottom-table th{font-weight:normal;color:#666;text-align:right;vertical-align:middle}.time-table td{width:220px}.time-table p{margin-bottom:0!important}.time-table{border-bottom:1px solid #dee2e6}.bottom-table{width:auto;font-size:16px;text-align:left;margin:0 auto}#approved_icon{position:absolute;right:-15px;top:-15px;width:110px;z-index:100}@keyframes stamp{from{right:-90px;width:200px;opacity:0.5}to{right:-15px;width:110px;opacity:1}}</style>
 
-  <script>
-    $.get("https://xctc.drlihui.eu.org/api", function(data) {
-      document.getElementById("number1").innerHTML= "学号：" + data.number;
-      document.getElementById("name1").innerHTML= data.name;
-      document.getElementById("time1").innerHTML= data.time1;
-      document.getElementById("time2").innerHTML= data.time2;
-      document.getElementById("time4").innerHTML= data.time4;
-
-      document.getElementById("pageContent").style.display = "block";
-
-      let Leave_School = data.Leave_School;
-      let Leave_City = data.Leave_City;
-
-      if(Leave_School == "离校")
-      {
-        if(Leave_City == "是"){
-          document.getElementById("Leave_City").innerHTML= "离开本市";
-        }
-      }
-      else if(Leave_School == "离校")
-      {
-        if(Leave_City == "否"){
-          document.getElementById("Leave_City").innerHTML= "离校不出市";
-        }
-      }
-      else{
-        document.getElementById("Leave_City").innerHTML= "不离校不出市";
-      }
-
-      document.getElementById("sex").innerHTML= "性别：" + data.sex;
-      document.getElementById("college_teacher").innerHTML= "院系：" + data.college + "-" + data.teacher;
-      document.getElementById("teacher").innerHTML= data.teacher;
-      
-      let str = data.college;
-      let result = str.replace(/[\d-]+/g, "");
-      document.getElementById("school_college").innerHTML= "许昌陶瓷职业学院" + " " + result;
-
-      let pictureurl = data.picture
-      picture()
-
-      function picture() {
-        if(!pictureurl || pictureurl === "0" || pictureurl === "undefined"){
-        }
-        else{document.getElementById("picture").src= data.picture;}
-      }
-      
-
-    });
-  </script>
-
-  <script>
-    function onAction(){
-      const qrc = document.getElementById('qrcode_box2_area');
-      qrc.style.display = qrc.style.display === 'none' ? 'block' : 'none';
-    };
-  </script>
-
-<!-- 加载页面再显示 -->
-    <!-- <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          // 页面加载完成后执行的代码
-          document.getElementById("pageContent").style.display = "block";
-      });
-    </script> -->
+  <script type="text/javascript" src="../script/course/index.js"></script>
 
   </div>
   </div>
