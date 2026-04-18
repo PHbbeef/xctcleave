@@ -36,11 +36,12 @@ $.get("http://127.0.0.1/api", function(data) {
     days =( (days_2 - days_1) + 1);
     document.getElementById("days").innerHTML = days
 
-    if( days < 1){
-    document.getElementById("Overnight_or_not").innerHTML = "跨夜"
+    if( days > 1){
+        document.getElementById("Overnight_or_not").innerHTML = "跨夜"
+        document.getElementById("Overnight_or_not").style.background="#ff0000";
     }
     else{
-    document.getElementById("Overnight_or_not").innerHTML = "不跨夜"
+        document.getElementById("Overnight_or_not").innerHTML = "不跨夜"
     }
 
 
